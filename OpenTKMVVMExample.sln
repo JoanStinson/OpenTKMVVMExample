@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTK_library", "OpenTK_li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfViewModelModule", "WpfViewModelModule\WpfViewModelModule.csproj", "{FDC35D67-9BB9-4B5E-8EFA-456D9446B2EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTK_hello_triangle_WPF", "OpenTK_hello_triangle_WPF\OpenTK_hello_triangle_WPF.csproj", "{B97E5C57-639F-43A3-B943-6E9CEB4FAB45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleRenderTest", "OpenTK_hello_triangle_WPF\ExampleRenderTest.csproj", "{B97E5C57-639F-43A3-B943-6E9CEB4FAB45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

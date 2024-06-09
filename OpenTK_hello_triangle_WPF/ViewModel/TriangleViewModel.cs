@@ -1,19 +1,19 @@
-﻿using OpenTK_hello_triangle_WPF.View;
-using OpenTK_hello_triangle_WPF.Model;
+﻿using ExampleRenderTest.View;
+using ExampleRenderTest.Model;
 using OpenTK.Wpf;
 using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace OpenTK_hello_triangle_WPF.ViewModel
+namespace ExampleRenderTest.ViewModel
 {
-    public class HelloTriangleViewModel
+    public class TriangleViewModel
     {
         private bool disposed;
-        HelloTriangleView view;
+        TriangleView view;
 
-        public HelloTriangleView View
+        public TriangleView View
         {
             get => view;
             set
@@ -25,7 +25,7 @@ namespace OpenTK_hello_triangle_WPF.ViewModel
 
         public GLWpfControl GLWpfControl => View.gl_control;
 
-        public HelloTriangle Model { get; } = new HelloTriangle();
+        public TriangleModel Model { get; } = new TriangleModel();
 
         void Initialize()
         {

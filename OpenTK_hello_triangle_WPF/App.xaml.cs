@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace OpenTK_hello_triangle_WPF
+namespace ExampleRenderTest
 {
     /// <summary>
     /// Interaction logic for App.xaml

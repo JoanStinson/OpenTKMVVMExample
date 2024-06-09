@@ -2,9 +2,9 @@
 using System.Windows;
 using OpenTK.Graphics.OpenGL4;
 
-namespace OpenTK_hello_triangle_WPF.Model
+namespace ExampleRenderTest.Model
 {
-    public class HelloTriangle
+    public class TriangleModel
     {
         private bool disposed;
         private int vertex_array_object;

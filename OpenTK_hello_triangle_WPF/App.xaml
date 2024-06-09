@@ -1,8 +1,8 @@
-﻿<Application x:Class="OpenTK_hello_triangle_WPF.App"
+﻿<Application x:Class="ExampleRenderTest.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OpenTK_hello_triangle_WPF"
-             StartupUri="View/HelloTriangleView.xaml">
+             xmlns:local="clr-namespace:ExampleRenderTest"
+             StartupUri="View/TriangleView.xaml">
     <Application.Resources>
          
     </Application.Resources>
