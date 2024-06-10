@@ -13,7 +13,7 @@
     </Window.DataContext>
     <Window.Resources>
         <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
-            <local:Slot1 />
+            <local:Slot1View />
         </DataTemplate>
     </Window.Resources>
     <DockPanel LastChildFill="True">

@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace ExampleRenderTest.View
 {
-    public partial class Slot1 : UserControl
+    public partial class Slot1View : UserControl
     {
-        public Slot1()
+        public Slot1View()
         {
             InitializeComponent();
 

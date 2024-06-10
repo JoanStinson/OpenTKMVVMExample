@@ -12,7 +12,7 @@ namespace ExampleRenderTest.ViewModel
         public GLWpfControl Slot1Control => View.slot1Render;
         public TriangleModel Model { get; } = new TriangleModel();
 
-        public Slot1 View
+        public Slot1View View
         {
             get => view;
             set
@@ -35,7 +35,7 @@ namespace ExampleRenderTest.ViewModel
             }
         }
 
-        private Slot1 view;
+        private Slot1View view;
         private Window window;
         private bool disposed;
 
