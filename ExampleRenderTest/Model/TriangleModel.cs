@@ -7,18 +7,21 @@ namespace ExampleRenderTest.Model
     public class TriangleModel
     {
         private bool disposed;
-        private int vertex_array_object;
-        private int vertex_buffer_object;
+        private int vertexArrayObject;
+        private int vertexBufferObject;
         private int program;
 
         public void Dispose(bool disposing)
         {
             if (!disposing || disposed)
+            {
                 return;
+            }
+
             disposed = true;
             GL.DeleteProgram(program);
-            GL.DeleteBuffer(vertex_buffer_object);
-            GL.DeleteVertexArray(vertex_array_object);
+            GL.DeleteBuffer(vertexBufferObject);
+            GL.DeleteVertexArray(vertexArrayObject);
         }
 
         public void Create()
@@ -32,11 +35,11 @@ namespace ExampleRenderTest.Model
                0.0f,    0.75f, 0.0f,  0.0f, 0.0f, 1.0f,
             };
 
-            vertex_array_object = GL.GenVertexArray();
-            vertex_buffer_object = GL.GenBuffer();
+            vertexArrayObject = GL.GenVertexArray();
+            vertexBufferObject = GL.GenBuffer();
 
-            GL.BindVertexArray(vertex_array_object);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, vertex_buffer_object);
+            GL.BindVertexArray(vertexArrayObject);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, vertexBufferObject);
             GL.BufferData(BufferTarget.ArrayBuffer, triangle.Length * sizeof(float), triangle, BufferUsageHint.StaticDraw);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 0);
             GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 3 * sizeof(float));
@@ -69,14 +72,18 @@ namespace ExampleRenderTest.Model
             GL.CompileShader(vertex_shader);
             string info_log_vertex = GL.GetShaderInfoLog(vertex_shader);
             if (!string.IsNullOrEmpty(info_log_vertex))
+            {
                 Console.WriteLine(info_log_vertex);
+            }
 
             int fragment_shader = GL.CreateShader(ShaderType.FragmentShader);
             GL.ShaderSource(fragment_shader, fragment_shader_code);
             GL.CompileShader(fragment_shader);
             string info_log_fragment = GL.GetShaderInfoLog(fragment_shader);
             if (!string.IsNullOrEmpty(info_log_fragment))
+            {
                 Console.WriteLine(info_log_fragment);
+            }
 
             program = GL.CreateProgram();
             GL.AttachShader(program, vertex_shader);
@@ -84,7 +91,9 @@ namespace ExampleRenderTest.Model
             GL.LinkProgram(program);
             string info_log_program = GL.GetProgramInfoLog(program);
             if (!string.IsNullOrEmpty(info_log_program))
+            {
                 Console.WriteLine(info_log_program);
+            }
             GL.DetachShader(program, vertex_shader);
             GL.DetachShader(program, fragment_shader);
             GL.DeleteShader(vertex_shader);
@@ -102,7 +111,6 @@ namespace ExampleRenderTest.Model
         {
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             GL.Clear(ClearBufferMask.ColorBufferBit);
-
             GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
         }
     }
