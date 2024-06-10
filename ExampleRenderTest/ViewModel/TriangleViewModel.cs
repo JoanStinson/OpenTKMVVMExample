@@ -8,10 +8,11 @@ using System.Windows.Controls;
 
 namespace ExampleRenderTest.ViewModel
 {
-    public class TriangleViewModel
+    public class TriangleViewModel : INotifyPropertyChanged
     {
         private bool disposed;
-        TriangleView view;
+        private TriangleView view;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public TriangleView View
         {
@@ -27,6 +28,25 @@ namespace ExampleRenderTest.ViewModel
 
         public TriangleModel Model { get; } = new TriangleModel();
 
+        // Slot ViewModels
+        public Slot1ViewModel Slot1ViewModel { get; set; }
+        public Slot2ViewModel Slot2ViewModel { get; set; }
+        public Slot3ViewModel Slot3ViewModel { get; set; }
+        public Slot4ViewModel Slot4ViewModel { get; set; }
+
+        public TriangleViewModel()
+        {
+            Slot1ViewModel = new Slot1ViewModel();
+            Slot2ViewModel = new Slot2ViewModel();
+            Slot3ViewModel = new Slot3ViewModel();
+            Slot4ViewModel = new Slot4ViewModel();
+        }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         void Initialize()
         {
             if (GLWpfControl == null)
@@ -34,8 +54,8 @@ namespace ExampleRenderTest.ViewModel
 
             Window window = Window.GetWindow(View);
             window.Closing += new CancelEventHandler(GLWpfControlOnDestroy);
-            GLWpfControl.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSiceChanged);
-            GLWpfControl.Render += GLWpfControlOnRendder;
+            GLWpfControl.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
+            GLWpfControl.Render += GLWpfControlOnRender;
 
             GLWpfControl.Start(
                 new GLWpfControlSettings()
@@ -56,12 +76,12 @@ namespace ExampleRenderTest.ViewModel
             Model.Dispose(true);
         }
 
-        protected void GLWpfControlOnSiceChanged(object sender, SizeChangedEventArgs e)
+        protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
         {
             Model.Resize(e.NewSize);
         }
 
-        protected void GLWpfControlOnRendder(System.TimeSpan timespawn)
+        protected void GLWpfControlOnRender(System.TimeSpan timeSpan)
         {
             Model.Render();
         }

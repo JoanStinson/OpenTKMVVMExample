@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ExampleRenderTest"
+        xmlns:local="clr-namespace:ExampleRenderTest.View"
         xmlns:ViewModel="clr-namespace:ExampleRenderTest.ViewModel"
         xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
         mc:Ignorable="d"
@@ -11,13 +11,48 @@
     <Window.DataContext>
         <ViewModel:TriangleViewModel/>
     </Window.DataContext>
-    <Grid>
-        <DockPanel LastChildFill="True">
-            <StackPanel DockPanel.Dock="Right">
-                <Button x:Name="buttonSetBGColor" Content="Set BG Color" Margin="5" Click="buttonSetBGColor_Click"></Button>
-                <Button x:Name="buttonSetTRColor" Content="Set TR Color" Margin="5" Click="buttonSetTRColor_Click"></Button>
-            </StackPanel>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
+            <local:Slot1 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:Slot2ViewModel}">
+            <local:Slot2 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:Slot3ViewModel}">
+            <local:Slot3 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:Slot4ViewModel}">
+            <local:Slot4 />
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Right">
+            <Button x:Name="buttonSetBGColor" Content="Set BG Color" Margin="5" Click="buttonSetBGColor_Click"></Button>
+            <Button x:Name="buttonSetTRColor" Content="Set TR Color" Margin="5" Click="buttonSetTRColor_Click"></Button>
+        </StackPanel>
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Placeholder for Slot1 -->
+            <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding Slot1ViewModel}" Margin="5"/>
             <glWpfControl:GLWpfControl x:Name="gl_control" Margin="5"/>
-        </DockPanel>
-    </Grid>
+            
+            <!-- Placeholder for Slot2 -->
+            <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding Slot2ViewModel}" Margin="5"/>
+            
+            <!-- Placeholder for Slot3 -->
+            <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding Slot3ViewModel}" Margin="5"/>
+            
+            <!-- Placeholder for Slot4 -->
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Slot4ViewModel}" Margin="5"/>
+        </Grid>
+        
+    </DockPanel>
 </Window>
