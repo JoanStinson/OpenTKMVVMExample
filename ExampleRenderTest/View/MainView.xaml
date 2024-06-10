@@ -9,20 +9,11 @@
         mc:Ignorable="d"
         Title="Example" Height="400" Width="500">
     <Window.DataContext>
-        <ViewModel:TriangleViewModel/>
+        <ViewModel:MainViewModel/>
     </Window.DataContext>
     <Window.Resources>
         <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
             <local:Slot1 />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:Slot2ViewModel}">
-            <local:Slot2 />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:Slot3ViewModel}">
-            <local:Slot3 />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModel:Slot4ViewModel}">
-            <local:Slot4 />
         </DataTemplate>
     </Window.Resources>
     <DockPanel LastChildFill="True">
@@ -33,25 +24,13 @@
         <Grid DockPanel.Dock="Left">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <!-- Placeholder for Slot1 -->
             <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding Slot1ViewModel}" Margin="5"/>
-            <glWpfControl:GLWpfControl x:Name="gl_control" Margin="5"/>
-
-            <!-- Placeholder for Slot2 -->
-            <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding Slot2ViewModel}" Margin="5"/>
-
-            <!-- Placeholder for Slot3 -->
-            <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding Slot3ViewModel}" Margin="5"/>
-
-            <!-- Placeholder for Slot4 -->
-            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Slot4ViewModel}" Margin="5"/>
         </Grid>
     </DockPanel>
 </Window>

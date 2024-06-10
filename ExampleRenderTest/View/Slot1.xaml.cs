@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExampleRenderTest.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace ExampleRenderTest.View
         public Slot1()
         {
             InitializeComponent();
+            DataContext = new Slot1ViewModel(); // Set DataContext to an instance of the view model
+            (DataContext as Slot1ViewModel).View = this;
+            (DataContext as Slot1ViewModel).Window = Window.GetWindow(this);
+            //if (DataContext is Slot1ViewModel viewModel)
+            //{
+            //    viewModel.View = this; // Set the view property of Slot1ViewModel to this view
+            //}
         }
     }
 }

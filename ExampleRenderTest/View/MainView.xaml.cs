@@ -11,10 +11,6 @@ namespace ExampleRenderTest.View
         public MainView()
         {
             InitializeComponent();
-            if (DataContext is TriangleViewModel view_model)
-            {
-                view_model.View = this;
-            }
         }
 
         public void buttonSetBGColor_Click(object sender, RoutedEventArgs e)
