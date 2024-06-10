@@ -7,15 +7,11 @@
         xmlns:ViewModel="clr-namespace:ExampleRenderTest.ViewModel"
         xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
         mc:Ignorable="d"
-        Title="Example" Height="400" Width="500">
+        Title="Example Render Test" Height="400" Width="500">
     <Window.DataContext>
         <ViewModel:MainViewModel/>
     </Window.DataContext>
     <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Right">
-            <Button x:Name="buttonSetBGColor" Content="Set BG Color" Margin="5" Click="buttonSetBGColor_Click"/>
-            <Button x:Name="buttonSetTRColor" Content="Set TR Color" Margin="5" Click="buttonSetTRColor_Click"/>
-        </StackPanel>
         <Grid DockPanel.Dock="Left">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -26,7 +22,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Placeholder for Slot1 -->
+            <!-- Slot1 -->
             <ContentControl Grid.Row="0" Grid.Column="0" Margin="5">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
@@ -38,7 +34,7 @@
                 </ContentControl.Content>
             </ContentControl>
 
-            <!-- Placeholder for Slot2 -->
+            <!-- Slot2 -->
             <ContentControl Grid.Row="0" Grid.Column="1" Margin="5">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
@@ -50,7 +46,7 @@
                 </ContentControl.Content>
             </ContentControl>
 
-            <!-- Placeholder for Slot3 -->
+            <!-- Slot3 -->
             <ContentControl Grid.Row="1" Grid.Column="0" Margin="5">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
@@ -62,7 +58,7 @@
                 </ContentControl.Content>
             </ContentControl>
 
-            <!-- Placeholder for Slot4 -->
+            <!-- Slot4 -->
             <ContentControl Grid.Row="1" Grid.Column="1" Margin="5">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
@@ -73,7 +69,6 @@
                     <Binding Path="Slot4ViewModel"/>
                 </ContentControl.Content>
             </ContentControl>
-
         </Grid>
     </DockPanel>
 </Window>
