@@ -83,8 +83,8 @@ namespace ExampleRenderTest.Model
 
         public void Render()
         {
-            // Clear the color buffer
-            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            // Clear the color buffer with the specified clear color
+            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f); // Set the clear color to the desired background color
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             // Draw the square
@@ -93,8 +93,15 @@ namespace ExampleRenderTest.Model
 
         public void Resize(Size newSize)
         {
-            // Set the viewport
-            GL.Viewport(0, 0, (int)newSize.Width, (int)newSize.Height);
+            // Calculate the size of the square viewport
+            int size = (int)Math.Min(newSize.Width, newSize.Height);
+
+            // Calculate the offset to center the square within the viewport
+            int offsetX = (int)((newSize.Width - size) / 2);
+            int offsetY = (int)((newSize.Height - size) / 2);
+
+            // Set the viewport dimensions to maintain a square aspect ratio
+            GL.Viewport(offsetX, offsetY, size, size);
         }
 
         public void Dispose(bool dispose)
