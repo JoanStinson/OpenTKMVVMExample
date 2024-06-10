@@ -1,11 +1,7 @@
 ﻿using System.Windows;
-using ExampleRenderTest.ViewModel;
 
 namespace ExampleRenderTest.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainView : Window
     {
         public MainView()

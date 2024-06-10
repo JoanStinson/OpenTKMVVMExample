@@ -7,6 +7,12 @@
              xmlns:ViewModel="clr-namespace:ExampleRenderTest.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
+    <UserControl.Resources>
+        <ViewModel:Slot1ViewModel x:Key="Slot1ViewModelInstance"/>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <StaticResource ResourceKey="Slot1ViewModelInstance"/>
+    </UserControl.DataContext>
     <Grid>
         <glWpfControl:GLWpfControl x:Name="slot1Render" Margin="5"/>
     </Grid>

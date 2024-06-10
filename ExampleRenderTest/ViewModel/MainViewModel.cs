@@ -1,10 +1,4 @@
-﻿using ExampleRenderTest.View;
-using OpenTK.Wpf;
-using System;
-using System.ComponentModel;
-using System.Windows;
-
-namespace ExampleRenderTest.ViewModel
+﻿namespace ExampleRenderTest.ViewModel
 {
     public class MainViewModel
     {

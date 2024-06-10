@@ -22,7 +22,6 @@ namespace ExampleRenderTest.ViewModel
             }
         }
 
-        private Window window;
         public Window Window
         {
             get => window;
@@ -35,7 +34,9 @@ namespace ExampleRenderTest.ViewModel
                 }
             }
         }
+
         private Slot1 view;
+        private Window window;
         private bool disposed;
 
         private void Initialize()
@@ -47,7 +48,6 @@ namespace ExampleRenderTest.ViewModel
 
             Slot1Control.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
             Slot1Control.Render += GLWpfControlOnRender;
-
             Slot1Control.Start
             (
                 new GLWpfControlSettings()
@@ -61,6 +61,16 @@ namespace ExampleRenderTest.ViewModel
             Model.Create();
         }
 
+        protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Model.Resize(e.NewSize);
+        }
+
+        protected void GLWpfControlOnRender(System.TimeSpan timeSpan)
+        {
+            Model.Render();
+        }
+
         protected void GLWpfControlOnDestroy(object sender, EventArgs e)
         {
             if (disposed)
@@ -70,16 +80,6 @@ namespace ExampleRenderTest.ViewModel
 
             disposed = true;
             Model.Dispose(true);
-        }
-
-        protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Model.Resize(e.NewSize);
-        }
-
-        protected void GLWpfControlOnRender(System.TimeSpan timeSpan)
-        {
-            Model.Render();
         }
     }
 }
