@@ -10,7 +10,7 @@ namespace ExampleRenderTest.ViewModel
     public class Slot1ViewModel
     {
         public GLWpfControl Slot1Control => View.slot1Render;
-        public TriangleModel Model { get; } = new TriangleModel();
+        public IGeometryModel Model { get; } = new TriangleModel();
 
         public Slot1View View
         {
@@ -46,8 +46,8 @@ namespace ExampleRenderTest.ViewModel
                 return;
             }
 
-            Slot1Control.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
             Slot1Control.Render += GLWpfControlOnRender;
+            Slot1Control.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
             Slot1Control.Start
             (
                 new GLWpfControlSettings()
@@ -61,14 +61,14 @@ namespace ExampleRenderTest.ViewModel
             Model.Create();
         }
 
-        protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Model.Resize(e.NewSize);
-        }
-
         protected void GLWpfControlOnRender(System.TimeSpan timeSpan)
         {
             Model.Render();
+        }
+
+        protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Model.Resize(e.NewSize);
         }
 
         protected void GLWpfControlOnDestroy(object sender, EventArgs e)

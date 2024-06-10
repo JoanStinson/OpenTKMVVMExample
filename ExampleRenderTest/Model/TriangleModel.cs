@@ -4,25 +4,12 @@ using OpenTK.Graphics.OpenGL4;
 
 namespace ExampleRenderTest.Model
 {
-    public class TriangleModel
+    public class TriangleModel : IGeometryModel
     {
         private bool disposed;
         private int vertexArrayObject;
         private int vertexBufferObject;
         private int program;
-
-        public void Dispose(bool disposing)
-        {
-            if (!disposing || disposed)
-            {
-                return;
-            }
-
-            disposed = true;
-            GL.DeleteProgram(program);
-            GL.DeleteBuffer(vertexBufferObject);
-            GL.DeleteVertexArray(vertexArrayObject);
-        }
 
         public void Create()
         {
@@ -102,16 +89,29 @@ namespace ExampleRenderTest.Model
             GL.UseProgram(program);
         }
 
-        public void Resize(Size newSize)
-        {
-            GL.Viewport(0, 0, (int)newSize.Width, (int)newSize.Height);
-        }
-
         public void Render()
         {
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             GL.Clear(ClearBufferMask.ColorBufferBit);
             GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
+        }
+
+        public void Resize(Size newSize)
+        {
+            GL.Viewport(0, 0, (int)newSize.Width, (int)newSize.Height);
+        }
+
+        public void Dispose(bool dispose)
+        {
+            if (!dispose || disposed)
+            {
+                return;
+            }
+
+            disposed = true;
+            GL.DeleteProgram(program);
+            GL.DeleteBuffer(vertexBufferObject);
+            GL.DeleteVertexArray(vertexArrayObject);
         }
     }
 }

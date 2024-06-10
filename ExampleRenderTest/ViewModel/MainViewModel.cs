@@ -1,4 +1,6 @@
-﻿namespace ExampleRenderTest.ViewModel
+﻿using ExampleRenderTest.Model;
+
+namespace ExampleRenderTest.ViewModel
 {
     public class MainViewModel
     {
