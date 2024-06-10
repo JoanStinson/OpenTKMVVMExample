@@ -7,13 +7,16 @@ using System.Windows;
 
 namespace ExampleRenderTest.ViewModel
 {
-    public class TriangleViewModel : INotifyPropertyChanged
+    public class TriangleViewModel
     {
-        private bool disposed;
-        private TriangleView view;
-        public event PropertyChangedEventHandler PropertyChanged;
+        public GLWpfControl GLWpfControl => View.gl_control;
+        public TriangleModel Model { get; } = new TriangleModel();
+        public Slot1ViewModel Slot1ViewModel { get; set; }
+        public Slot2ViewModel Slot2ViewModel { get; set; }
+        public Slot3ViewModel Slot3ViewModel { get; set; }
+        public Slot4ViewModel Slot4ViewModel { get; set; }
 
-        public TriangleView View
+        public MainView View
         {
             get => view;
             set
@@ -23,15 +26,8 @@ namespace ExampleRenderTest.ViewModel
             }
         }
 
-        public GLWpfControl GLWpfControl => View.gl_control;
-
-        public TriangleModel Model { get; } = new TriangleModel();
-
-        // Slot ViewModels
-        public Slot1ViewModel Slot1ViewModel { get; set; }
-        public Slot2ViewModel Slot2ViewModel { get; set; }
-        public Slot3ViewModel Slot3ViewModel { get; set; }
-        public Slot4ViewModel Slot4ViewModel { get; set; }
+        private bool disposed;
+        private MainView view;
 
         public TriangleViewModel()
         {
@@ -39,11 +35,6 @@ namespace ExampleRenderTest.ViewModel
             Slot2ViewModel = new Slot2ViewModel();
             Slot3ViewModel = new Slot3ViewModel();
             Slot4ViewModel = new Slot4ViewModel();
-        }
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void Initialize()

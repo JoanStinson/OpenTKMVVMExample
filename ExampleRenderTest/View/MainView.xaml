@@ -1,4 +1,4 @@
-﻿<Window x:Class="ExampleRenderTest.View.TriangleView"
+﻿<Window x:Class="ExampleRenderTest.View.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -43,16 +43,15 @@
             <!-- Placeholder for Slot1 -->
             <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding Slot1ViewModel}" Margin="5"/>
             <glWpfControl:GLWpfControl x:Name="gl_control" Margin="5"/>
-            
+
             <!-- Placeholder for Slot2 -->
             <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding Slot2ViewModel}" Margin="5"/>
-            
+
             <!-- Placeholder for Slot3 -->
             <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding Slot3ViewModel}" Margin="5"/>
-            
+
             <!-- Placeholder for Slot4 -->
             <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Slot4ViewModel}" Margin="5"/>
         </Grid>
-        
     </DockPanel>
 </Window>
