@@ -11,26 +11,69 @@
     <Window.DataContext>
         <ViewModel:MainViewModel/>
     </Window.DataContext>
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
-            <local:Slot1View />
-        </DataTemplate>
-    </Window.Resources>
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Right">
-            <Button x:Name="buttonSetBGColor" Content="Set BG Color" Margin="5" Click="buttonSetBGColor_Click"></Button>
-            <Button x:Name="buttonSetTRColor" Content="Set TR Color" Margin="5" Click="buttonSetTRColor_Click"></Button>
+            <Button x:Name="buttonSetBGColor" Content="Set BG Color" Margin="5" Click="buttonSetBGColor_Click"/>
+            <Button x:Name="buttonSetTRColor" Content="Set TR Color" Margin="5" Click="buttonSetTRColor_Click"/>
         </StackPanel>
         <Grid DockPanel.Dock="Left">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Placeholder for Slot1 -->
-            <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding Slot1ViewModel}" Margin="5"/>
+            <ContentControl Grid.Row="0" Grid.Column="0" Margin="5">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
+                        <local:Slot1View/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+                <ContentControl.Content>
+                    <Binding Path="Slot1ViewModel"/>
+                </ContentControl.Content>
+            </ContentControl>
+
+            <!-- Placeholder for Slot2 -->
+            <ContentControl Grid.Row="0" Grid.Column="1" Margin="5">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
+                        <local:Slot1View/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+                <ContentControl.Content>
+                    <Binding Path="Slot2ViewModel"/>
+                </ContentControl.Content>
+            </ContentControl>
+
+            <!-- Placeholder for Slot3 -->
+            <ContentControl Grid.Row="1" Grid.Column="0" Margin="5">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
+                        <local:Slot1View/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+                <ContentControl.Content>
+                    <Binding Path="Slot3ViewModel"/>
+                </ContentControl.Content>
+            </ContentControl>
+
+            <!-- Placeholder for Slot4 -->
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="5">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type ViewModel:Slot1ViewModel}">
+                        <local:Slot1View/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+                <ContentControl.Content>
+                    <Binding Path="Slot4ViewModel"/>
+                </ContentControl.Content>
+            </ContentControl>
+
         </Grid>
     </DockPanel>
 </Window>
