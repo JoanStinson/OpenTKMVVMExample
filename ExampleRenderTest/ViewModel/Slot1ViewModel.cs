@@ -10,7 +10,7 @@ namespace ExampleRenderTest.ViewModel
     public class Slot1ViewModel
     {
         public GLWpfControl Slot1Control => View.slot1Render;
-        public IGeometryModel Model { get; } = new TriangleModel();
+        public IGeometryModel Model { get; } = new CircleModel();
 
         public Slot1View View
         {
