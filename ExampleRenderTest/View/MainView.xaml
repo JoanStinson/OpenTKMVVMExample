@@ -12,21 +12,23 @@
         <ViewModel:MainViewModel/>
     </Window.DataContext>
     <DockPanel LastChildFill="True">
-        <Grid DockPanel.Dock="Left">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <Border Margin="5">
+            <Grid DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <!-- Slots -->
-            <ContentControl x:Name="Slot1ContentControl" Grid.Row="0" Grid.Column="0" Margin="5"/>
-            <ContentControl x:Name="Slot2ContentControl" Grid.Row="0" Grid.Column="1" Margin="5"/>
-            <ContentControl x:Name="Slot3ContentControl" Grid.Row="1" Grid.Column="0" Margin="5"/>
-            <ContentControl x:Name="Slot4ContentControl" Grid.Row="1" Grid.Column="1" Margin="5"/>
-        </Grid>
+                <!-- Slots -->
+                <ContentControl x:Name="Slot1ContentControl" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                <ContentControl x:Name="Slot2ContentControl" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                <ContentControl x:Name="Slot3ContentControl" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                <ContentControl x:Name="Slot4ContentControl" Grid.Row="1" Grid.Column="1" Margin="5"/>
+            </Grid>
+        </Border>
     </DockPanel>
 </Window>

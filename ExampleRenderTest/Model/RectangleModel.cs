@@ -6,13 +6,12 @@ namespace ExampleRenderTest.Model
     {
         protected override float[] GetVertices() => new float[]
         {  
-    // Position          // Color
-    -0.75f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, // Bottom-left
-     0.75f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // Bottom-right
-     0.75f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f, // Top-right
-    -0.75f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f  // Top-left
+            // Position          // Color
+            -0.75f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, // Bottom-left
+             0.75f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // Bottom-right
+             0.75f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f, // Top-right
+            -0.75f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f  // Top-left
         };
-
 
         protected override void DrawArrays()
         {

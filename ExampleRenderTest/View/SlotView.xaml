@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid>
-        <glWpfControl:GLWpfControl x:Name="GLControl" Margin="5"/>
+        <glWpfControl:GLWpfControl x:Name="GLControl"/>
     </Grid>
 </UserControl>
