@@ -5,35 +5,65 @@ namespace ExampleRenderTest.Model
 {
     public class CircleModel : BaseGeometryModel
     {
-        private const int numberOfVertices = 100;
+        private const int numberOfVertices = 600;
         private const float circleRadius = 0.55f;
 
         protected override float[] GetVertices()
         {
-            float[] vertices = new float[(numberOfVertices + 2) * 6]; // Each vertex has 6 components (x, y, z, r, g, b)
+            // Each vertex has x, y, z, r, g, b
+            float[] vertices = new float[numberOfVertices * 6];
+            const float angleIncrement = (float)(2 * Math.PI / numberOfVertices);
 
-            // Center vertex (color: red)
-            vertices[0] = 0.0f; // x
-            vertices[1] = 0.0f; // y
-            vertices[2] = 0.0f; // z
-            vertices[3] = 1.0f; // Color: Red
-            vertices[4] = 0.0f; // Color: Green
-            vertices[5] = 0.0f; // Color: Blue
-
-            // Calculate other vertices with gradient color from light to dark red
-            for (int i = 0; i <= numberOfVertices; i++)
+            for (int i = 0; i < numberOfVertices; i++)
             {
-                float angle = (float)(2 * Math.PI * i / numberOfVertices);
-                float redComponent = 1.0f - Math.Abs((float)Math.Sin(angle));      // Red component gradient from light to dark
-                vertices[(i + 1) * 6] = circleRadius * (float)Math.Cos(angle);     // x
-                vertices[(i + 1) * 6 + 1] = circleRadius * (float)Math.Sin(angle); // y
-                vertices[(i + 1) * 6 + 2] = 0.0f;                                  // z
-                vertices[(i + 1) * 6 + 3] = redComponent;                          // Color: Red (gradient)
-                vertices[(i + 1) * 6 + 4] = 0.0f;                                  // Color: Green (constant)
-                vertices[(i + 1) * 6 + 5] = 0.0f;                                  // Color: Blue (constant)
+                float angle = i * angleIncrement;
+                SetVertexPosition(angle, vertices, i);
+                SetVertexColor(vertices, i, angle);
             }
 
             return vertices;
+        }
+
+        private void SetVertexPosition(float angle, float[] vertices, int i)
+        {
+            float xCoordinate = circleRadius * (float)Math.Cos(angle);
+            float yCoordinate = circleRadius * (float)Math.Sin(angle);
+            const float zCoordinate = 0.0f;
+
+            vertices[i * 6] = xCoordinate;     // x
+            vertices[i * 6 + 1] = yCoordinate; // y
+            vertices[i * 6 + 2] = zCoordinate; // z
+        }
+
+        private void SetVertexColor(float[] vertices, int i, float angle)
+        {
+            float hue = angle / (2 * (float)Math.PI);
+            const float saturation = 1.0f;
+            const float value = 1.0f;
+            int color = ConvertHSVtoRGB(hue, saturation, value);
+
+            vertices[i * 6 + 3] = ((color >> 16) & 0xFF) / 255.0f; // r
+            vertices[i * 6 + 4] = ((color >> 8) & 0xFF) / 255.0f;  // g
+            vertices[i * 6 + 5] = (color & 0xFF) / 255.0f;         // b
+        }
+
+        private int ConvertHSVtoRGB(float hue, float saturation, float value)
+        {
+            int hueSector = (int)(hue * 6) % 6;
+            float f = hue * 6 - hueSector;
+            float p = value * (1 - saturation);
+            float q = value * (1 - f * saturation);
+            float t = value * (1 - (1 - f) * saturation);
+
+            switch (hueSector)
+            {
+                case 0: return ((int)(value * 255) << 16) | ((int)(t * 255) << 8) | (int)(p * 255);
+                case 1: return ((int)(q * 255) << 16) | ((int)(value * 255) << 8) | (int)(p * 255);
+                case 2: return ((int)(p * 255) << 16) | ((int)(value * 255) << 8) | (int)(t * 255);
+                case 3: return ((int)(p * 255) << 16) | ((int)(q * 255) << 8) | (int)(value * 255);
+                case 4: return ((int)(t * 255) << 16) | ((int)(p * 255) << 8) | (int)(value * 255);
+                default: return ((int)(value * 255) << 16) | ((int)(p * 255) << 8) | (int)(q * 255);
+            }
         }
 
         protected override void DrawArrays()
