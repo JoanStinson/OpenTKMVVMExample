@@ -9,7 +9,7 @@ namespace ExampleRenderTest.ViewModel
 {
     public class SlotViewModel
     {
-        public GLWpfControl GLControl => View.glControl;
+        public GLWpfControl GLControl => View.GLControl;
         public IGeometryModel Model { get; private set; }
 
         public SlotView View
@@ -68,12 +68,12 @@ namespace ExampleRenderTest.ViewModel
 
         protected void GLWpfControlOnRender(TimeSpan timeSpan)
         {
-            Model?.Render();
+            Model.Render();
         }
 
         protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            Model?.Resize(e.NewSize);
+            Model.Resize(e.NewSize);
         }
 
         protected void GLWpfControlOnDestroy(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace ExampleRenderTest.ViewModel
             }
 
             disposed = true;
-            Model?.Dispose(true);
+            Model.Dispose(true);
         }
     }
 }
