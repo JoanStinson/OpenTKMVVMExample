@@ -7,7 +7,7 @@
         xmlns:ViewModel="clr-namespace:ExampleRenderTest.ViewModel"
         xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
         mc:Ignorable="d"
-        Title="Example Render Test" Height="400" Width="500">
+        Title="Example Render Test" Height="400" Width="400">
     <Window.DataContext>
         <ViewModel:MainViewModel/>
     </Window.DataContext>
@@ -22,16 +22,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Slot1 -->
+            <!-- Slots -->
             <ContentControl x:Name="Slot1ContentControl" Grid.Row="0" Grid.Column="0" Margin="5"/>
-
-            <!-- Slot2 -->
             <ContentControl x:Name="Slot2ContentControl" Grid.Row="0" Grid.Column="1" Margin="5"/>
-
-            <!-- Slot3 -->
             <ContentControl x:Name="Slot3ContentControl" Grid.Row="1" Grid.Column="0" Margin="5"/>
-
-            <!-- Slot4 -->
             <ContentControl x:Name="Slot4ContentControl" Grid.Row="1" Grid.Column="1" Margin="5"/>
         </Grid>
     </DockPanel>

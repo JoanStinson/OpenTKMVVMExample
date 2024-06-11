@@ -1,17 +1,19 @@
 ﻿using ExampleRenderTest.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ExampleRenderTest.View
 {
-    public partial class Slot1View : UserControl
+    public partial class SlotView : UserControl
     {
-        public Slot1ViewModel ViewModel { get; }
+        public SlotViewModel ViewModel { get; }
 
-        public Slot1View(Slot1ViewModel viewModel)
+        public SlotView(SlotViewModel viewModel)
         {
             InitializeComponent();
             ViewModel = viewModel;
             DataContext = ViewModel;
+            ViewModel.Window = Window.GetWindow(this);
             ViewModel.View = this;
         }
     }

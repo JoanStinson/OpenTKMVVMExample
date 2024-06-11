@@ -10,13 +10,13 @@ namespace ExampleRenderTest.View
             InitializeComponent();
 
             var mainViewModel = (MainViewModel)DataContext;
-            var slot1View = new Slot1View(mainViewModel.Slot1ViewModel);
+            var slot1View = new SlotView(mainViewModel.Slot1ViewModel);
             Slot1ContentControl.Content = slot1View;
-            var slot2View = new Slot1View(mainViewModel.Slot2ViewModel);
+            var slot2View = new SlotView(mainViewModel.Slot2ViewModel);
             Slot2ContentControl.Content = slot2View;
-            var slot3View = new Slot1View(mainViewModel.Slot3ViewModel);
+            var slot3View = new SlotView(mainViewModel.Slot3ViewModel);
             Slot3ContentControl.Content = slot3View;
-            var slot4View = new Slot1View(mainViewModel.Slot4ViewModel);
+            var slot4View = new SlotView(mainViewModel.Slot4ViewModel);
             Slot4ContentControl.Content = slot4View;
         }
     }

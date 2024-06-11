@@ -7,12 +7,12 @@ using System.Windows;
 
 namespace ExampleRenderTest.ViewModel
 {
-    public class Slot1ViewModel
+    public class SlotViewModel
     {
-        public GLWpfControl Slot1Control => View.slot1Render;
+        public GLWpfControl GLControl => View.glControl;
         public IGeometryModel Model { get; private set; }
 
-        public Slot1View View
+        public SlotView View
         {
             get => view;
             set
@@ -35,25 +35,25 @@ namespace ExampleRenderTest.ViewModel
             }
         }
 
-        private Slot1View view;
+        private SlotView view;
         private Window window;
         private bool disposed;
 
-        public Slot1ViewModel(IGeometryModel model)
+        public SlotViewModel(IGeometryModel model)
         {
             Model = model;
         }
 
         private void Initialize()
         {
-            if (Slot1Control == null)
+            if (GLControl == null)
             {
                 return;
             }
 
-            Slot1Control.Render += GLWpfControlOnRender;
-            Slot1Control.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
-            Slot1Control.Start
+            GLControl.Render += GLWpfControlOnRender;
+            GLControl.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
+            GLControl.Start
             (
                 new GLWpfControlSettings()
                 {
