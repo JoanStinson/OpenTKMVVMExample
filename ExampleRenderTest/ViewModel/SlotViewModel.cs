@@ -1,4 +1,5 @@
 ﻿using ExampleRenderTest.Model;
+using ExampleRenderTest.Model.Helpers;
 using ExampleRenderTest.View;
 using OpenTK.Wpf;
 using System;
@@ -60,7 +61,7 @@ namespace ExampleRenderTest.ViewModel
             GLControl.Start(settings);
             GLControl.Render += Render;
 
-            Model.Initialize();
+            Model.Initialize(new DefaultProgramBuilder(), new DefaultShaderCode());
         }
 
         private void Render(TimeSpan timeSpan)

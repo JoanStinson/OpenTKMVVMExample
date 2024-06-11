@@ -24,13 +24,13 @@ namespace ExampleRenderTest.Model
             for (int i = 0; i <= numberOfVertices; i++)
             {
                 float angle = (float)(2 * Math.PI * i / numberOfVertices);
-                float redComponent = 1.0f - Math.Abs((float)Math.Sin(angle)); // Red component gradient from light to dark
+                float redComponent = 1.0f - Math.Abs((float)Math.Sin(angle));      // Red component gradient from light to dark
                 vertices[(i + 1) * 6] = circleRadius * (float)Math.Cos(angle);     // x
                 vertices[(i + 1) * 6 + 1] = circleRadius * (float)Math.Sin(angle); // y
-                vertices[(i + 1) * 6 + 2] = 0.0f;                                   // z
-                vertices[(i + 1) * 6 + 3] = redComponent;                            // Color: Red (gradient)
-                vertices[(i + 1) * 6 + 4] = 0.0f;                                   // Color: Green (constant)
-                vertices[(i + 1) * 6 + 5] = 0.0f;                                   // Color: Blue (constant)
+                vertices[(i + 1) * 6 + 2] = 0.0f;                                  // z
+                vertices[(i + 1) * 6 + 3] = redComponent;                          // Color: Red (gradient)
+                vertices[(i + 1) * 6 + 4] = 0.0f;                                  // Color: Green (constant)
+                vertices[(i + 1) * 6 + 5] = 0.0f;                                  // Color: Blue (constant)
             }
 
             return vertices;
