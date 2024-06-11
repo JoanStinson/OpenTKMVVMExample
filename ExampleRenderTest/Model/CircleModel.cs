@@ -5,8 +5,8 @@ namespace ExampleRenderTest.Model
 {
     public class CircleModel : BaseGeometryModel
     {
-        private const int numberOfVertices = 50;
-        private const float circleRadius = 0.5f;
+        private const int numberOfVertices = 100;
+        private const float circleRadius = 0.55f;
 
         protected override float[] GetVertices()
         {
