@@ -4,8 +4,8 @@ namespace ExampleRenderTest.Model
 {
     public interface IGeometryModel
     {
-        void Create();
+        void Initialize();
         void Render();
-        void Dispose(bool dispose);
+        void Destroy();
     }
 }

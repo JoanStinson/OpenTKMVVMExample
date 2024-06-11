@@ -2,7 +2,7 @@
 
 namespace ExampleRenderTest.ViewModel
 {
-    public class MainViewModel
+    public sealed class MainViewModel
     {
         public SlotViewModel Slot1ViewModel { get; }
         public SlotViewModel Slot2ViewModel { get; }

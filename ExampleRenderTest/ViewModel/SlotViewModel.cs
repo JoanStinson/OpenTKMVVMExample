@@ -30,7 +30,7 @@ namespace ExampleRenderTest.ViewModel
                 window = value;
                 if (window != null)
                 {
-                    window.Closing += new CancelEventHandler(GLWpfControlOnDestroy);
+                    window.Closing += new CancelEventHandler(Destroy);
                 }
             }
         }
@@ -55,28 +55,28 @@ namespace ExampleRenderTest.ViewModel
             {
                 MajorVersion = 4,
                 MinorVersion = 6,
-                ContextFlags = OpenTK.Windowing.Common.ContextFlags.Default | OpenTK.Windowing.Common.ContextFlags.Debug,
+                ContextFlags = OpenTK.Windowing.Common.ContextFlags.Default | OpenTK.Windowing.Common.ContextFlags.Debug
             };
             GLControl.Start(settings);
-            GLControl.Render += GLWpfControlOnRender;
+            GLControl.Render += Render;
 
-            Model.Create();
+            Model.Initialize();
         }
 
-        protected void GLWpfControlOnRender(TimeSpan timeSpan)
+        private void Render(TimeSpan timeSpan)
         {
             Model.Render();
         }
 
-        protected void GLWpfControlOnDestroy(object sender, EventArgs e)
+        private void Destroy(object sender, EventArgs e)
         {
             if (disposed)
             {
                 return;
             }
 
+            Model.Destroy();
             disposed = true;
-            Model.Dispose(true);
         }
     }
 }
