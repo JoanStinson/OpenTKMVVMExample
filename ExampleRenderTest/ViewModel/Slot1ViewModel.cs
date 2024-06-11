@@ -59,7 +59,7 @@ namespace ExampleRenderTest.ViewModel
                 {
                     MajorVersion = 4,
                     MinorVersion = 6,
-                    GraphicsContextFlags = OpenTK.Windowing.Common.ContextFlags.Default | OpenTK.Windowing.Common.ContextFlags.Debug,
+                    ContextFlags = OpenTK.Windowing.Common.ContextFlags.Default | OpenTK.Windowing.Common.ContextFlags.Debug,
                 }
             );
 

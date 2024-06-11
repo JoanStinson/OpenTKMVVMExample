@@ -12,9 +12,9 @@ namespace ExampleRenderTest.ViewModel
         public MainViewModel()
         {
             Slot1ViewModel = new Slot1ViewModel(new TriangleModel());
-            Slot2ViewModel = new Slot1ViewModel(new TriangleModel());
+            Slot2ViewModel = new Slot1ViewModel(new RectangleModel());
             Slot3ViewModel = new Slot1ViewModel(new SquareModel());
-            Slot4ViewModel = new Slot1ViewModel(new SquareModel());
+            Slot4ViewModel = new Slot1ViewModel(new CircleModel());
         }
     }
 }

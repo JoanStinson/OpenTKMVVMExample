@@ -19,15 +19,5 @@ namespace ExampleRenderTest.View
             var slot4View = new Slot1View(mainViewModel.Slot4ViewModel);
             Slot4ContentControl.Content = slot4View;
         }
-
-        public void buttonSetBGColor_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        public void buttonSetTRColor_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

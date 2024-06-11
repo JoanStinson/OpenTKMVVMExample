@@ -10,13 +10,13 @@ namespace ExampleRenderTest.Model
         private int vertexArrayObject;
         private int vertexBufferObject;
         private int program;
-        private const int NumVertices = 50; // Increase number of vertices for smoother circle
-        private const float CircleRadius = 0.5f; // Adjust the radius of the circle
+        private const int numVertices = 50; // Increase number of vertices for smoother circle
+        private const float circleRadius = 0.5f; // Adjust the radius of the circle
 
         public void Create()
         {
             // Define circle vertices
-            float[] circle = new float[(NumVertices + 2) * 6]; // Each vertex has 6 components (x, y, z, r, g, b)
+            float[] circle = new float[(numVertices + 2) * 6]; // Each vertex has 6 components (x, y, z, r, g, b)
 
             // Center vertex (color: red)
             circle[0] = 0.0f; // x
@@ -27,12 +27,12 @@ namespace ExampleRenderTest.Model
             circle[5] = 0.0f; // Color: Blue
 
             // Calculate other vertices with gradient color from light to dark red
-            for (int i = 0; i <= NumVertices; i++)
+            for (int i = 0; i <= numVertices; i++)
             {
-                float angle = (float)(2 * Math.PI * i / NumVertices);
+                float angle = (float)(2 * Math.PI * i / numVertices);
                 float redComponent = 1.0f - Math.Abs((float)Math.Sin(angle)); // Red component gradient from light to dark
-                circle[(i + 1) * 6] = CircleRadius * (float)Math.Cos(angle);     // x
-                circle[(i + 1) * 6 + 1] = CircleRadius * (float)Math.Sin(angle); // y
+                circle[(i + 1) * 6] = circleRadius * (float)Math.Cos(angle);     // x
+                circle[(i + 1) * 6 + 1] = circleRadius * (float)Math.Sin(angle); // y
                 circle[(i + 1) * 6 + 2] = 0.0f;                                   // z
                 circle[(i + 1) * 6 + 3] = redComponent;                            // Color: Red (gradient)
                 circle[(i + 1) * 6 + 4] = 0.0f;                                   // Color: Green (constant)
@@ -104,7 +104,7 @@ namespace ExampleRenderTest.Model
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
             // Draw the circle using triangle fan mode
-            GL.DrawArrays(PrimitiveType.TriangleFan, 0, NumVertices + 2); // Include center and NumVertices
+            GL.DrawArrays(PrimitiveType.TriangleFan, 0, numVertices + 2); // Include center and NumVertices
         }
 
         public void Resize(Size newSize)
