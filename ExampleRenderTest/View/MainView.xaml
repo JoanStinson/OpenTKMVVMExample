@@ -7,28 +7,57 @@
         xmlns:ViewModel="clr-namespace:ExampleRenderTest.ViewModel"
         xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
         mc:Ignorable="d"
-        Title="Example Render Test" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Example Render Test" Width="600" Height="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <ViewModel:MainViewModel/>
     </Window.DataContext>
-    <DockPanel LastChildFill="True">
-        <Border Margin="5">
-            <Grid DockPanel.Dock="Left">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Slots -->
+        <DockPanel Grid.Column="0">
+            <Border Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentControl x:Name="Slot1ContentControl" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                    <ContentControl x:Name="Slot2ContentControl" Grid.Row="0" Grid.Column="1" Margin="5"/>
+                    <ContentControl x:Name="Slot3ContentControl" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                    <ContentControl x:Name="Slot4ContentControl" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                </Grid>
+            </Border>
+        </DockPanel>
+
+        <!-- GroupBox with Triangle -->
+        <GroupBox Header="Triangle" Grid.Column="1" Margin="0,0,5,0" Height="75" Width="Auto" VerticalAlignment="Top">
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="190"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <!-- Slots -->
-                <ContentControl x:Name="Slot1ContentControl" Grid.Row="0" Grid.Column="0" Margin="5"/>
-                <ContentControl x:Name="Slot2ContentControl" Grid.Row="0" Grid.Column="1" Margin="5"/>
-                <ContentControl x:Name="Slot3ContentControl" Grid.Row="1" Grid.Column="0" Margin="5"/>
-                <ContentControl x:Name="Slot4ContentControl" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0">
+                    <TextBlock Text="X" Margin="5"/>
+                    <TextBox Margin="0" Width="35" Height="20"/>
+                    <TextBlock Text="Y" Margin="5"/>
+                    <TextBox Margin="0" Width="35" Height="20"/>
+                    <TextBlock Text="Z" Margin="5"/>
+                    <TextBox Margin="0" Width="35" Height="20"/>
+                </StackPanel>
+                <Button Content="Set Values" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,5,5,0" Width="100" HorizontalAlignment="Center"/>
             </Grid>
-        </Border>
-    </DockPanel>
+        </GroupBox>
+    </Grid>
 </Window>

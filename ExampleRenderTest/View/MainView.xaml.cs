@@ -14,5 +14,13 @@ namespace ExampleRenderTest.View
             Slot3ContentControl.Content = new SlotView(mainViewModel.Slot3ViewModel);
             Slot4ContentControl.Content = new SlotView(mainViewModel.Slot4ViewModel);
         }
+
+        private void ButtonClickHandler(object sender, RoutedEventArgs e)
+        {
+            //var mainViewModel = (MainViewModel)DataContext;
+            //mainViewModel.X = double.Parse(XTextBox.Text);
+            //mainViewModel.Y = double.Parse(YTextBox.Text);
+            //mainViewModel.Z = double.Parse(ZTextBox.Text);
+        }
     }
 }
