@@ -6,7 +6,6 @@ namespace ExampleRenderTest.Model
     {
         void Create();
         void Render();
-        void Resize(Size newSize);
         void Dispose(bool dispose);
     }
 }

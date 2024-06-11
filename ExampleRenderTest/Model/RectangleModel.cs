@@ -91,12 +91,6 @@ namespace ExampleRenderTest.Model
             GL.DrawArrays(PrimitiveType.TriangleFan, 0, 4);
         }
 
-        public void Resize(Size newSize)
-        {
-            // Set the viewport
-            GL.Viewport(0, 0, (int)newSize.Width, (int)newSize.Height);
-        }
-
         public void Dispose(bool dispose)
         {
             // Dispose resources

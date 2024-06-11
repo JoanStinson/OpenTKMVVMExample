@@ -51,17 +51,14 @@ namespace ExampleRenderTest.ViewModel
                 return;
             }
 
+            var settings = new GLWpfControlSettings()
+            {
+                MajorVersion = 4,
+                MinorVersion = 6,
+                ContextFlags = OpenTK.Windowing.Common.ContextFlags.Default | OpenTK.Windowing.Common.ContextFlags.Debug,
+            };
+            GLControl.Start(settings);
             GLControl.Render += GLWpfControlOnRender;
-            GLControl.SizeChanged += new SizeChangedEventHandler(GLWpfControlOnSizeChanged);
-            GLControl.Start
-            (
-                new GLWpfControlSettings()
-                {
-                    MajorVersion = 4,
-                    MinorVersion = 6,
-                    ContextFlags = OpenTK.Windowing.Common.ContextFlags.Default | OpenTK.Windowing.Common.ContextFlags.Debug,
-                }
-            );
 
             Model.Create();
         }
@@ -69,11 +66,6 @@ namespace ExampleRenderTest.ViewModel
         protected void GLWpfControlOnRender(TimeSpan timeSpan)
         {
             Model.Render();
-        }
-
-        protected void GLWpfControlOnSizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Model.Resize(e.NewSize);
         }
 
         protected void GLWpfControlOnDestroy(object sender, EventArgs e)

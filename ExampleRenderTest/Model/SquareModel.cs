@@ -91,19 +91,6 @@ namespace ExampleRenderTest.Model
             GL.DrawArrays(PrimitiveType.TriangleFan, 0, 4);
         }
 
-        public void Resize(Size newSize)
-        {
-            // Calculate the size of the square viewport
-            int size = (int)Math.Min(newSize.Width, newSize.Height);
-
-            // Calculate the offset to center the square within the viewport
-            int offsetX = (int)((newSize.Width - size) / 2);
-            int offsetY = (int)((newSize.Height - size) / 2);
-
-            // Set the viewport dimensions to maintain a square aspect ratio
-            GL.Viewport(offsetX, offsetY, size, size);
-        }
-
         public void Dispose(bool dispose)
         {
             // Dispose resources (same as previous)
