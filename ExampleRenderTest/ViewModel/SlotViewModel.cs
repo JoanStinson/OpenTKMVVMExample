@@ -81,11 +81,8 @@ namespace ExampleRenderTest.ViewModel
 
         public void UpdateModel(IGeometryModel model)
         {
-            GLControl.Render -= Render;
-            Model.Destroy();
             Model = model;
             Model.Initialize(new DefaultProgramBuilder(), new DefaultShaderCode());
-            GLControl.Render += Render;
             destroyed = false;
         }
     }

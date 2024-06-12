@@ -22,11 +22,10 @@ namespace ExampleRenderTest.Model
             GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 3 * sizeof(float));
             GL.EnableVertexAttribArray(0);
             GL.EnableVertexAttribArray(1);
-
+            
             int vertexShader = programBuilder.BuildShader(ShaderType.VertexShader, shaderCode.GetVertexShaderCode());
             int fragmentShader = programBuilder.BuildShader(ShaderType.FragmentShader, shaderCode.GetFragmentShaderCode());
             program = programBuilder.BuildProgram(vertexShader, fragmentShader);
-            GL.UseProgram(program);
             disposed = false;
         }
 
@@ -34,6 +33,8 @@ namespace ExampleRenderTest.Model
         {
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             GL.Clear(ClearBufferMask.ColorBufferBit);
+            GL.UseProgram(program);
+            GL.BindVertexArray(vertexArrayObject);
             DrawArrays();
         }
 
