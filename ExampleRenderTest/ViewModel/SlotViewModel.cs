@@ -38,7 +38,7 @@ namespace ExampleRenderTest.ViewModel
 
         private SlotView view;
         private Window window;
-        private bool disposed;
+        private bool destroyed;
 
         public SlotViewModel(IGeometryModel model)
         {
@@ -60,7 +60,6 @@ namespace ExampleRenderTest.ViewModel
             };
             GLControl.Start(settings);
             GLControl.Render += Render;
-
             Model.Initialize(new DefaultProgramBuilder(), new DefaultShaderCode());
         }
 
@@ -71,13 +70,21 @@ namespace ExampleRenderTest.ViewModel
 
         private void Destroy(object sender, EventArgs e)
         {
-            if (disposed)
+            if (destroyed)
             {
                 return;
             }
 
             Model.Destroy();
-            disposed = true;
+            destroyed = true;
+        }
+
+        public void UpdateModel(IGeometryModel model)
+        {
+            Model.Destroy();
+            Model = model;
+            Model.Initialize(new DefaultProgramBuilder(), new DefaultShaderCode());
+            destroyed = false;
         }
     }
 }

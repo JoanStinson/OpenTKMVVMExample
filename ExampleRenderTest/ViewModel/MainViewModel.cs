@@ -1,4 +1,5 @@
 ﻿using ExampleRenderTest.Model;
+using OpenTK.Mathematics;
 
 namespace ExampleRenderTest.ViewModel
 {
@@ -15,6 +16,12 @@ namespace ExampleRenderTest.ViewModel
             Slot2ViewModel = new SlotViewModel(new RectangleModel());
             Slot3ViewModel = new SlotViewModel(new SquareModel());
             Slot4ViewModel = new SlotViewModel(new CircleModel());
+        }
+
+        public void UpdateSlot1Model(Vector2 bottomLeft, Vector2 bottomRight, Vector2 topCenter)
+        {
+            var newTriangleModel = new TriangleModel(bottomLeft, bottomRight, topCenter);
+            Slot1ViewModel.UpdateModel(newTriangleModel);
         }
     }
 }
