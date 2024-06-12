@@ -47,25 +47,25 @@
                     <TextBlock Text="Bottom Left" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox x:Name="BottomLeftXTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomLeftXTextBox" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox x:Name="BottomLeftYTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomLeftYTextBox" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <TextBlock Text="Bottom Right" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox x:Name="BottomRightXTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomRightXTextBox" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox x:Name="BottomRightYTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomRightYTextBox" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <TextBlock Text="Top Center" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TopCenterXTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleTopCenterXTextBox" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TopCenterYTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleTopCenterYTextBox" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button x:Name="CreateTriangleButton" Content="Create Triangle" Width="100" Margin="5" Click="CreateTriangleButton_Click" />
+                    <Button x:Name="CreateTriangleButton" Content="Create Triangle" Width="100" Margin="5" Click="OnClickCreateTriangleButton" />
                 </StackPanel>
 
                 <!-- Rectangle Section -->

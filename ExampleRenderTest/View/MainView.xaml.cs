@@ -18,22 +18,22 @@ namespace ExampleRenderTest.View
             Slot3ContentControl.Content = new SlotView(mainViewModel.Slot3ViewModel);
             Slot4ContentControl.Content = new SlotView(mainViewModel.Slot4ViewModel);
 
-            BottomLeftXTextBox.Text = "-0.6";
-            BottomLeftYTextBox.Text = "-0.525";
-            BottomRightXTextBox.Text = "0.6";
-            BottomRightYTextBox.Text = "-0.525";
-            TopCenterXTextBox.Text = "0";
-            TopCenterYTextBox.Text = "0.525";
+            TriangleBottomLeftXTextBox.Text = "-0.6";
+            TriangleBottomLeftYTextBox.Text = "-0.525";
+            TriangleBottomRightXTextBox.Text = "0.6";
+            TriangleBottomRightYTextBox.Text = "-0.525";
+            TriangleTopCenterXTextBox.Text = "0";
+            TriangleTopCenterYTextBox.Text = "0.525";
             
-            CreateTriangleButton.Click += CreateTriangleButton_Click;
+            CreateTriangleButton.Click += OnClickCreateTriangleButton;
         }
 
-        private void CreateTriangleButton_Click(object sender, RoutedEventArgs e)
+        private void OnClickCreateTriangleButton(object sender, RoutedEventArgs e)
         {
             //TODO: error checking
-            Vector2 bottomLeft = new Vector2(float.Parse(BottomLeftXTextBox.Text), float.Parse(BottomLeftYTextBox.Text));
-            Vector2 bottomRight = new Vector2(float.Parse(BottomRightXTextBox.Text), float.Parse(BottomRightYTextBox.Text));
-            Vector2 topCenter = new Vector2(float.Parse(TopCenterXTextBox.Text), float.Parse(TopCenterYTextBox.Text));
+            Vector2 bottomLeft = new Vector2(float.Parse(TriangleBottomLeftXTextBox.Text), float.Parse(TriangleBottomLeftYTextBox.Text));
+            Vector2 bottomRight = new Vector2(float.Parse(TriangleBottomRightXTextBox.Text), float.Parse(TriangleBottomRightYTextBox.Text));
+            Vector2 topCenter = new Vector2(float.Parse(TriangleTopCenterXTextBox.Text), float.Parse(TriangleTopCenterYTextBox.Text));
             mainViewModel.UpdateSlot1Model(bottomLeft, bottomRight, topCenter);
         }
     }
