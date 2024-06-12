@@ -94,16 +94,16 @@
                     <TextBlock Text="Bottom Left" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="SquareBottomLeftXTextBox" Text="-0.5" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="SquareBottomLeftYTextBox" Text="-0.5" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <TextBlock Text="Top Right" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="SquareTopRightXTextBox" Text="0.5" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="SquareTopRightYTextBox" Text="0.5" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <Button x:Name="CreateSquareButton" Content="Create Square" Width="100" Margin="5" />
                 </StackPanel>

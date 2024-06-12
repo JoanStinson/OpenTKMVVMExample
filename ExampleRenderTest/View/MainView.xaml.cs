@@ -44,7 +44,9 @@ namespace ExampleRenderTest.View
 
         private void OnClickCreateSquareButton(object sender, RoutedEventArgs e)
         {
-
+            Vector2 bottomLeft = new Vector2(float.Parse(SquareBottomLeftXTextBox.Text), float.Parse(SquareBottomLeftYTextBox.Text));
+            Vector2 topRight = new Vector2(float.Parse(SquareTopRightXTextBox.Text), float.Parse(SquareTopRightYTextBox.Text));
+            mainViewModel.UpdateSlot3Model(bottomLeft, topRight);
         }
 
         private void OnClickCreateCircleButton(object sender, RoutedEventArgs e)

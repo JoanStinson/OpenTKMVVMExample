@@ -29,5 +29,11 @@ namespace ExampleRenderTest.ViewModel
             var newRectangleModel = new RectangleModel(bottomLeft, topRight);
             Slot2ViewModel.UpdateModel(newRectangleModel);
         }
+
+        public void UpdateSlot3Model(Vector2 bottomLeft, Vector2 topRight)
+        {
+            var newSquareModel = new SquareModel(bottomLeft, topRight);
+            Slot3ViewModel.UpdateModel(newSquareModel);
+        }
     }
 }
