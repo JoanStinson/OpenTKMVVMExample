@@ -21,7 +21,13 @@ namespace ExampleRenderTest.ViewModel
         public void UpdateSlot1Model(Vector2 bottomLeft, Vector2 bottomRight, Vector2 topCenter)
         {
             var newTriangleModel = new TriangleModel(bottomLeft, bottomRight, topCenter);
-            Slot1ViewModel.UpdateModel(newTriangleModel);
+            Slot4ViewModel.UpdateModel(newTriangleModel);
+        }
+
+        public void UpdateSlot2Model(Vector2 bottomLeft, Vector2 topRight)
+        {
+            var newRectangleModel = new RectangleModel(bottomLeft, topRight);
+            Slot2ViewModel.UpdateModel(newRectangleModel);
         }
     }
 }

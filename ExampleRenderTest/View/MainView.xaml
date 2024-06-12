@@ -47,25 +47,25 @@
                     <TextBlock Text="Bottom Left" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TriangleBottomLeftXTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomLeftXTextBox" Text="-0.6" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TriangleBottomLeftYTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomLeftYTextBox" Text="-0.525" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <TextBlock Text="Bottom Right" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TriangleBottomRightXTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomRightXTextBox" Text="0.6" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TriangleBottomRightYTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleBottomRightYTextBox" Text="-0.525" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <TextBlock Text="Top Center" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TriangleTopCenterXTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleTopCenterXTextBox" Text="0" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox x:Name="TriangleTopCenterYTextBox" Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="TriangleTopCenterYTextBox" Text="0.525" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button x:Name="CreateTriangleButton" Content="Create Triangle" Width="100" Margin="5" Click="OnClickCreateTriangleButton" />
+                    <Button x:Name="CreateTriangleButton" Content="Create Triangle" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Rectangle Section -->
@@ -74,18 +74,18 @@
                     <TextBlock Text="Bottom Left" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="RectangleBottomLeftXTextBox" Text="-0.75" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="RectangleBottomLeftYTextBox" Text="-0.5" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
                     <TextBlock Text="Top Right" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="X" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="RectangleTopRightXTextBox" Text="0.75" Width="70" Margin="0,0,5,0"/>
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
-                        <TextBox Width="70" Margin="0,0,5,0"/>
+                        <TextBox x:Name="RectangleTopRightYTextBox" Text="0.5" Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button Content="Create Rectangle" Width="100" Margin="5" />
+                    <Button x:Name="CreateRectangleButton" Content="Create Rectangle" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Square Section -->
@@ -105,7 +105,7 @@
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
                         <TextBox Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button Content="Create Square" Width="100" Margin="5" />
+                    <Button x:Name="CreateSquareButton" Content="Create Square" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Circle Section -->
@@ -113,14 +113,14 @@
                 <StackPanel>
                     <TextBlock Text="Radius" Margin="5"/>
                     <Slider Width="180" Margin="5" />
-                    <Button Content="Create Circle" Width="100" Margin="5" />
+                    <Button x:Name="CreateCircleButton" Content="Create Circle" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Last Section -->
                 <TextBlock Text="Last Section" FontWeight="Bold" Margin="5" />
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Reorder" Width="80" Margin="5" />
-                    <Button Content="Rotate" Width="80" Margin="5" />
+                    <Button x:Name="ReorderButton" Content="Reorder" Width="80" Margin="5" />
+                    <Button x:Name="RotateButton" Content="Rotate" Width="80" Margin="5" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

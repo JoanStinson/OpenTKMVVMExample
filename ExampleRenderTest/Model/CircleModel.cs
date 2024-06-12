@@ -8,10 +8,10 @@ namespace ExampleRenderTest.Model
         private const int numberOfVertices = 600;
         private const float circleRadius = 0.55f;
 
-        protected override float[] GetVertices()
+        public CircleModel()
         {
             // Each vertex has x, y, z, r, g, b
-            float[] vertices = new float[numberOfVertices * 6];
+            vertices = new float[numberOfVertices * 6];
             const float angleIncrement = (float)(2 * Math.PI / numberOfVertices);
 
             for (int i = 0; i < numberOfVertices; i++)
@@ -20,8 +20,6 @@ namespace ExampleRenderTest.Model
                 SetVertexPosition(angle, vertices, i);
                 SetVertexColor(vertices, i, angle);
             }
-
-            return vertices;
         }
 
         private void SetVertexPosition(float angle, float[] vertices, int i)

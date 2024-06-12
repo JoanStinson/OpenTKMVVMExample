@@ -5,6 +5,7 @@ namespace ExampleRenderTest.Model
 {
     public abstract class BaseGeometryModel : IGeometryModel
     {
+        protected float[] vertices;
         private int vertexArrayObject;
         private int vertexBufferObject;
         private int program;
@@ -16,8 +17,6 @@ namespace ExampleRenderTest.Model
             vertexBufferObject = GL.GenBuffer();
             GL.BindVertexArray(vertexArrayObject);
             GL.BindBuffer(BufferTarget.ArrayBuffer, vertexBufferObject);
-
-            var vertices = GetVertices();
             GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 0);
             GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 3 * sizeof(float));
@@ -28,9 +27,8 @@ namespace ExampleRenderTest.Model
             int fragmentShader = programBuilder.BuildShader(ShaderType.FragmentShader, shaderCode.GetFragmentShaderCode());
             program = programBuilder.BuildProgram(vertexShader, fragmentShader);
             GL.UseProgram(program);
+            disposed = false;
         }
-
-        protected abstract float[] GetVertices();
 
         public void Render()
         {

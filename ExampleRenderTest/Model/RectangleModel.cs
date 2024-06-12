@@ -1,17 +1,33 @@
 ﻿using OpenTK.Graphics.OpenGL4;
+using OpenTK.Mathematics;
 
 namespace ExampleRenderTest.Model
 {
     public class RectangleModel : BaseGeometryModel
     {
-        protected override float[] GetVertices() => new float[]
-        {  
-            // x      y     z      r     g     b    
-            -0.75f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, // Bottom left
-             0.75f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // Bottom right
-             0.75f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f, // Top right
-            -0.75f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f  // Top left
-        };
+        public RectangleModel()
+        {
+            vertices = new float[]
+            {
+                // x      y     z      r     g     b    
+                -0.75f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, // Bottom left
+                 0.75f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // Bottom right
+                 0.75f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f, // Top right
+                -0.75f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f  // Top left
+            };
+        }
+
+        public RectangleModel(Vector2 bottomLeft, Vector2 topRight)
+        {
+            vertices = new float[]
+            {
+                //   x             y         z      r     g     b    
+                bottomLeft.X, bottomLeft.Y, 0.0f,  1.0f, 0.0f, 0.0f, // Bottom left
+                topRight.X,   bottomLeft.Y, 0.0f,  0.0f, 1.0f, 0.0f, // Bottom right
+                topRight.X,   topRight.Y,   0.0f,  0.0f, 0.0f, 1.0f, // Top right
+                bottomLeft.X, topRight.Y,   0.0f,  1.0f, 1.0f, 0.0f  // Top left
+            };
+        }
 
         protected override void DrawArrays()
         {

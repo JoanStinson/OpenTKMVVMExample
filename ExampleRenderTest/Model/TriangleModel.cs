@@ -5,8 +5,6 @@ namespace ExampleRenderTest.Model
 {
     public class TriangleModel : BaseGeometryModel
     {
-        private readonly float[] vertices;
-
         public TriangleModel()
         {
             vertices = new float[]
@@ -27,11 +25,6 @@ namespace ExampleRenderTest.Model
                bottomRight.X, bottomRight.Y, 0.0f, 1.0f, 1.0f, 0.0f, // Bottom right
                topCenter.X,   topCenter.Y,   0.0f, 0.0f, 0.0f, 1.0f  // Top center
             };
-        }
-
-        protected override float[] GetVertices()
-        {
-            return vertices;
         }
 
         protected override void DrawArrays()
