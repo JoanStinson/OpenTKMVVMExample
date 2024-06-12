@@ -12,11 +12,12 @@ namespace ExampleRenderTest.View
         {
             InitializeComponent();
 
+            var window = GetWindow(this);
             mainViewModel = (MainViewModel)DataContext;
-            Slot1ContentControl.Content = new SlotView(mainViewModel.Slot1ViewModel);
-            Slot2ContentControl.Content = new SlotView(mainViewModel.Slot2ViewModel);
-            Slot3ContentControl.Content = new SlotView(mainViewModel.Slot3ViewModel);
-            Slot4ContentControl.Content = new SlotView(mainViewModel.Slot4ViewModel);
+            Slot1ContentControl.Content = new SlotView(mainViewModel.Slot1ViewModel, window);
+            Slot2ContentControl.Content = new SlotView(mainViewModel.Slot2ViewModel, window);
+            Slot3ContentControl.Content = new SlotView(mainViewModel.Slot3ViewModel, window);
+            Slot4ContentControl.Content = new SlotView(mainViewModel.Slot4ViewModel, window);
 
             CreateTriangleButton.Click += OnClickCreateTriangleButton;
             CreateRectangleButton.Click += OnClickCreateRectangleButton;

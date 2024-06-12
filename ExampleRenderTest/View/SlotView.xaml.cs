@@ -8,12 +8,12 @@ namespace ExampleRenderTest.View
     {
         public SlotViewModel ViewModel { get; }
 
-        public SlotView(SlotViewModel viewModel)
+        public SlotView(SlotViewModel viewModel, Window window)
         {
             InitializeComponent();
             ViewModel = viewModel;
             DataContext = ViewModel;
-            ViewModel.Window = Window.GetWindow(this);
+            ViewModel.Window = window;
             ViewModel.View = this;
         }
     }
