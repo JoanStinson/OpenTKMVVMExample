@@ -1,5 +1,5 @@
 # OpenTK MVVM Example
-An OpenTK rendering example of basic geometries: triangle, rectangle, square and circle within a MVVM architecture.
+An OpenTK rendering example of basic geometries within a MVVM architecture.
 
 <p align="center">
   <a>
