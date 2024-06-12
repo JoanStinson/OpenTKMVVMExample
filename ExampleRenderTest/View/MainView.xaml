@@ -40,7 +40,7 @@
         <!-- Scroll View -->
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="0,10,0,10">
             <StackPanel>
-                
+
                 <!-- Triangle Section -->
                 <TextBlock Text="Triangle Section" FontWeight="Bold" Margin="5,0,5,5" />
                 <StackPanel>
@@ -65,7 +65,7 @@
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
                         <TextBox Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button Content="Triangle Button" Width="100" Margin="5" />
+                    <Button Content="Create Triangle" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Rectangle Section -->
@@ -85,7 +85,7 @@
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
                         <TextBox Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button Content="Rectangle Button" Width="100" Margin="5" />
+                    <Button Content="Create Rectangle" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Square Section -->
@@ -105,7 +105,7 @@
                         <TextBlock Text="Y" Margin="0,0,5,0"/>
                         <TextBox Width="70" Margin="0,0,5,0"/>
                     </StackPanel>
-                    <Button Content="Square Button" Width="100" Margin="5" />
+                    <Button Content="Create Square" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Circle Section -->
@@ -113,14 +113,14 @@
                 <StackPanel>
                     <TextBlock Text="Radius" Margin="5"/>
                     <Slider Width="180" Margin="5" />
-                    <Button Content="Circle Button" Width="100" Margin="5" />
+                    <Button Content="Create Circle" Width="100" Margin="5" />
                 </StackPanel>
 
                 <!-- Last Section -->
                 <TextBlock Text="Last Section" FontWeight="Bold" Margin="5" />
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Reorder Button" Width="90" Margin="5" />
-                    <Button Content="Rotate Button" Width="90" Margin="5" />
+                    <Button Content="Reorder" Width="80" Margin="5" />
+                    <Button Content="Rotate" Width="80" Margin="5" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
